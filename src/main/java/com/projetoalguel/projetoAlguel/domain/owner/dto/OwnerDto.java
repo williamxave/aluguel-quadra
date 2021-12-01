@@ -17,5 +17,4 @@ public class OwnerDto {
     private String email;
     @NotBlank
     private String password;
-
 }

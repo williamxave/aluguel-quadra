@@ -23,7 +23,7 @@ public class Owner {
     private Long id;
 
     @Column(name = "external_Id")
-    private String externalId;
+    private UUID externalId;
 
     @NotBlank
     private String name;
@@ -39,9 +39,15 @@ public class Owner {
     @Column(name = "create_At")
     private LocalDateTime createAt;
 
+    private LocalDateTime upDate;
+
     @PrePersist
     private void prePersist(){
-        externalId = UUID.randomUUID().toString();
+        externalId = UUID.randomUUID();
         createAt = LocalDateTime.now();
+    }
+
+    public void upDate(){
+        upDate = LocalDateTime.now();
     }
 }
